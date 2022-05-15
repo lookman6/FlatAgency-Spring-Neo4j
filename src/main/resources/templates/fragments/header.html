@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html  lang="en"  xmlns:th="http://thymeleaf.org">
+<head th:fragment="html_head(page_title)">
+    <meta charset="utf-8">
+    <title th:text="${page_title}"></title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicons -->
+    <link  th:href="@{img/favicon.png}" rel="icon">
+    <link  th:href="@{img/apple-touch-icon.png}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link th:href="@{lib/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link th:href="@{lib/font-awesome/css/font-awesome.min.css}" rel="stylesheet">
+    <link th:href="@{lib/animate/animate.min.css}" rel="stylesheet">
+    <link th:href="@{lib/ionicons/css/ionicons.min.css}" rel="stylesheet">
+    <link th:href="@{lib/owlcarousel/assets/owl.carousel.min.css}" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link th:href="@{css/style.css}" rel="stylesheet">
+
+    <!-- star_style Stylesheet File -->
+    <link th:href="@{css/star_style.css}" rel="stylesheet">
+
+    <!-- table_pagination Stylesheet File -->
+    <!--<link href="https://unpkg.com/bootstrap-table@1.20.1/dist/bootstrap-table.min.css" rel="stylesheet">
+    <style>
+        .select,
+        #locale {
+            width: 100%;
+        }
+        .like {
+            margin-right: 10px;
+        }
+    </style>-->
+
+
+
+
+    <!-- <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css} "/>
+     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+     <link th:rel="stylesheet" th:href="@{/assets/bootstrapless-star-rating/star-rating.css} "/>
+ -->
+    <!-- =======================================================
+      Theme Name: EstateAgency
+      Theme URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
+      Author: BootstrapMade.com
+      License: https://bootstrapmade.com/license/
+    ======================================================= -->
+</head>
+
+<body>
+<div  th:fragment="header">
+<div class="click-closed"></div>
+<!--/ Form Search Star /-->
+    <div class="box-collapse">
+        <div class="title-box-d">
+            <h3 class="title-d">Search an apartment</h3>
+        </div>
+        <span class="close-box-collapse right-boxed ion-ios-close"></span>
+        <div class="box-collapse-wrap form">
+            <form th:action="@{/search}" method="post" class="form-a">
+                <div class="row">
+                    <div class="col-md-12 mb-2">
+                        <div class="form-group">
+                            <label for="Type">Ambience</label>
+                            <input type="text" class="form-control form-control-lg form-control-a" placeholder="Keyword" name="ambience"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <div class="form-group">
+                            <label for="Type">Type</label>
+                            <select class="form-control form-control-lg form-control-a" id="Type" name="type">
+                                <option>Studio</option>
+                                <option>Apartment</option>
+                                <option>Duplex</option>
+                                <option>Triplex</option>
+                                <option>Villa</option>
+                                <option>Autres</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <select class="form-control form-control-lg form-control-a" id="city" name="city">
+                                <option value="Agadir">Agadir</option>
+                                <option value="Al Hoceima">Al Hoceima</option>
+                                <option value="Azilal">Azilal</option>
+                                <option value="Beni Mellal">Beni Mellal</option>
+                                <option value="Ben Slimane">Ben Slimane</option>
+                                <option value="Boulemane">Boulemane</option>
+                                <option value="Casablanca">Casablanca</option>
+                                <option value="Chaouen">Chaouen</option>
+                                <option value="El Jadida">El Jadida</option>
+                                <option value="El Kelaa des Sraghna">El Kelaa des Sraghna</option>
+                                <option value="Er Rachidia">Er Rachidia</option>
+                                <option value="Essaouira">Essaouira</option>
+                                <option value="Fes">Fes</option>
+                                <option value="Figuig">Figuig</option>
+                                <option value="Guelmim">Guelmim</option>
+                                <option value="Ifrane">Ifrane</option>
+                                <option value="Kenitra">Kenitra</option>
+                                <option value="Khemisset">Khemisset</option>
+                                <option value="Khenifra">Khenifra</option>
+                                <option value="Khouribga">Khouribga</option>
+                                <option value="Laayoune">Laayoune</option>
+                                <option value="Larache">Larache</option>
+                                <option value="Marrakech">Marrakech</option>
+                                <option value="Meknes">Meknes</option>
+                                <option value="Nador">Nador</option>
+                                <option value="Ouarzazate">Ouarzazate</option>
+                                <option value="Oujda">Oujda</option>
+                                <option value="Rabat-Sale">Rabat-Sale</option>
+                                <option value="Safi">Safi</option>
+                                <option value="Settat">Settat</option>
+                                <option value="Sidi Kacem">Sidi Kacem</option>
+                                <option value="Tangier">Tangier</option>
+                                <option value="Tan-Tan">Tan-Tan</option>
+                                <option value="Taounate">Taounate</option>
+                                <option value="Taroudannt">Taroudannt</option>
+                                <option value="Tata">Tata</option>
+                                <option value="Taza">Taza</option>
+                                <option value="Tetouan">Tetouan</option>
+                                <option value="Tiznit">Tiznit</option>
+                                <option>Autres</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <div class="form-group">
+                            <label for="bedrooms">Bedrooms</label>
+                            <select class="form-control form-control-lg form-control-a" id="bedrooms" name="bedrooms">
+                                <option th:each="i : ${#numbers.sequence(0, 100)}" th:value="${i}" th:text="${i}">
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <div class="form-group">
+                            <label for="bathrooms">Bathrooms</label>
+                            <select class="form-control form-control-lg form-control-a" id="bathrooms" name="bathrooms">
+                                <option th:each="i : ${#numbers.sequence(0, 100)}" th:value="${i}" th:text="${i}">
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <div class="form-group">
+                            <label >Neighborhood</label>
+                            <input type="text" class="form-control form-control-lg form-control-a" placeholder="Boukhalef" name="neighborhood"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <div class="form-group">
+                            <label >Max Price</label>
+                            <input type="number" class="form-control form-control-lg form-control-a" value="2000" name="price"/>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-b">Search </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+<!--/ Form Search End /-->
+
+<!--/ Nav Star /-->
+<nav th:fragment="nav_bar" class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+    <div class="container">
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+                aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <a class="navbar-brand text-brand" th:href="@{/index}">Flat<span class="color-b">Agency</span></a>
+        <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse"
+                data-target="#navbarTogglerDemo01" aria-expanded="false">
+            <span class="fa fa-search" aria-hidden="true"></span>
+        </button>
+        <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/index}"  th:classappend="${#httpServletRequest.getRequestURI() == '/index' ? 'active':''}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/about}" th:classappend="${#httpServletRequest.getRequestURI() == '/about' ? 'active':''}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/apartment}" th:classappend="${(#httpServletRequest.getRequestURI() == '/propertyGrid' ? 'active':'') + (#httpServletRequest.getRequestURI() == '/propertySingle' ? 'active':'')}">Properties</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/agentsGrid}" th:classappend="${(#httpServletRequest.getRequestURI() == '/GetAgents' ? 'active':'') + (#httpServletRequest.getRequestURI() == '/agentSingle' ? 'active':'')}">Agents</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/myPage}" th:classappend="${(#httpServletRequest.getRequestURI() == '/AddPersonApart' ? 'active':'') + (#httpServletRequest.getRequestURI() == '/GetInfos' ? 'active':'')}">My Page</a>
+                </li>
+                <!--<li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        Pages
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" th:href="@{/apartments}">Property Single</a>
+                        <a class="dropdown-item" th:href="@{/blogSimple}">Blog Single</a>
+                        <a class="dropdown-item" th:href="@{/users}">Agents Grid</a>
+                        <a class="dropdown-item" th:href="@{/users}">Agent Single</a>
+                    </div>
+                </li>-->
+            </ul>
+        </div>
+        <button type="button" class="btn btn-b-n d-none d-md-block"  th:onclick="'window.location.href = \'' + @{/logout} + '\''" >
+            <span class="fa fa-sign-out" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse"
+                data-target="#navbarTogglerDemo01" aria-expanded="false">
+            <span class="fa fa-search" aria-hidden="true"></span>
+        </button>
+    </div>
+</nav>
+
+<!--/ Nav End /-->
+</div>
+</body>
+</html>

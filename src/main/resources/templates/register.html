@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+
+<head lang="en">
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>register</title>
+
+    <!-- Icons font CSS-->
+    <link th:href="@{vendor/mdi-font/css/material-design-iconic-font.min.css}" rel="stylesheet" media="all">
+    <link th:href="@{vendor/font-awesome-4.7/css/font-awesome.min.css}" rel="stylesheet" media="all">
+    <link th:href="@{css/register.css}" rel="stylesheet" >
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link th:href="@{vendor/select2/select2.min.css}" rel="stylesheet" media="all">
+    <link th:href="@{vendor/datepicker/daterangepicker.css}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link th:href="@{css/main.css}" rel="stylesheet" media="all">
+</head>
+
+<body>
+
+<div class="container">
+
+    <form class="well form-horizontal" th:action="@{/users/addNewR}" method="post"  id="contact_form">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend><center><h2><b>Registration Form</b></h2></center></legend><br>
+
+            <!-- Text input-->
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">First Name</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input  type="text" placeholder="firstName"  autofocus name="firstname" required class="form-control" >
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text input-->
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" >Last Name</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" placeholder="Name" autofocus name="name" required class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Sexe</label>
+                <div class="col-md-4 selectContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+
+                        <select name="gender" class="form-control selectpicker">
+                            <option disabled="disabled" selected="selected">GENDER</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text input-->
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Username</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input  type="text" placeholder="Username" autofocus name="userName" required class="form-control" >
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text input-->
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" >Password</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="password" placeholder="Mot de passe" autofocus  name="password" required class="form-control"  >
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text input-->
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" >Confirm Password</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="confirm_password" placeholder="Confirm Password" class="form-control"  type="password">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Profession</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                        <input type="text" placeholder="President" autofocus name="profession" required/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Nationalité</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                        <input type="text" placeholder="Burkina Faso" autofocus name="nationality" required/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label">E-Mail</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        <input type="email" placeholder="sanalookmanossam@gmail.com" autofocus name="email" required/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Photo</label>
+                <div class="col-md-4 selectContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+
+                        <select name="img" class="form-control selectpicker">
+                            <option disabled="disabled" selected="selected">0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Text input-->
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Contact No.</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                        <input type="text" placeholder="+212684004402" autofocus name="telephone" required/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Select Basic -->
+
+            <!-- Success message -->
+            <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4"><br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+</div><!-- /.container -->
+<!----------------------------------------------------------------------------------------------------------------------------->
+   <!-- <div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-1">
+                <div class="card-heading"></div>
+                <div class="dropdown-menu">
+                    <h2 class="title" >Fill the gaps for registration</h2>
+                    <form th:action="@{/users/addNewR}" method="POST">
+                        <!-- <div class="input-group">
+                             <input class="input--style-1" type="text" placeholder="NAME" name="name">
+                         </div>
+                         <div class="row row-space">
+                             <div class="col-2">
+                                 <div class="input-group">
+                                     <input class="input--style-1 js-datepicker" type="text" placeholder="BIRTHDATE" name="birthday">
+                                     <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                 </div>
+                             </div>-->
+<!--     <div class="form-group">
+        <b> FirstName</b>
+         <div class="input-field">
+         <input type="text" placeholder="firstName"  autofocus name="firstname" required/>
+         </div>
+     </div>-->
+
+
+
+<!--<div class="form-group">
+    <b>Name</b>
+    <div class="input-field">
+    <input type="text" placeholder="Name" autofocus name="name" required/>
+    </div>
+</div>-->
+
+
+
+<!--<div class="form-group">
+    <b>Profession</b>
+    <div class="input-field">
+    <input type="text" placeholder="President" autofocus name="profession" required/>
+    </div>
+</div>-->
+
+
+<!--<div class="form-group">
+    <b>Username</b>
+    <div class="input-field">
+    <input type="text" placeholder="Username" autofocus name="userName" required/>
+    </div>
+</div>-->
+
+<!--<div class="form-group">
+    <b>Password</b>
+    <div class="input-field">
+    <input type="password" placeholder="Mot de passe" autofocus id="password" name="password" required/>
+    </div>
+</div>-->
+
+
+<!--<div class="form-group">
+    <div class="input-field">
+    <select name="gender">
+        <option disabled="disabled" selected="selected">GENDER</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+    </select>
+    </div>
+</div>-->
+
+
+<!--<div class="form-group">
+    <b>Nationality</b>
+    <div class="input-field">
+    <input type="text" placeholder="Burkina Faso" autofocus name="nationality" required/>
+    </div>
+</div>-->
+
+
+<!--<div class="form-group">
+    <b>Tel/Fax</b>
+    <div class="input-field">
+    <input type="text" placeholder="+212684004402" autofocus name="telephone" required/>
+    </div>
+</div>-->
+
+<!--<div class="form-group">
+    <b>Mail</b>
+    <div class="input-field">
+    <input type="email" placeholder="sanalookmanossam@gmail.com" autofocus name="email" required/>
+    </div>
+</div>-->
+
+<!-- <div class="col-2">
+     <div class="input-group">
+         <div class="rs-select2 js-select-simple select--no-search">-->
+
+                        <!-- <div class="select-dropdown"></div>
+                     </div>
+                 </div>
+             </div>-->
+<!-- </div>-->
+                <!------------------------------------------------------------------------------------------------------------------->
+                <!-- <div class="input-group">
+                     <div class="rs-select2 js-select-simple select--no-search">
+                         <select name="class">
+                             <option disabled="disabled" selected="selected">CLASS</option>
+                             <option>Class 1</option>
+                             <option>Class 2</option>
+                             <option>Class 3</option>
+                         </select>
+                         <div class="select-dropdown"></div>
+                     </div>
+                 </div>>-->
+                <!--  <div class="row row-space">
+                      <div class="col-2">-->
+                <!--<div class="input-group">
+                    <input class="input--style-1" type="text" placeholder="REGISTRATION CODE" name="res_code">
+                </div>-->
+                <!--   </div>
+         </div>-->
+<!--<div class="p-t-20">
+    <button class="btn btn--radius btn--green" type="submit">Submit</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>-->
+
+<!-- Jquery JS-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script th:src="@{vendor/select2/select2.min.js}"></script>
+    <script th:src="@{vendor/datepicker/moment.min.js}"></script>
+    <script th:src="@{vendor/datepicker/daterangepicker.js}"></script>
+
+    <!-- Main JS-->
+    <script th:src="@{js/global.js}"></script>
+<script th:src="@{js/regiter.js}"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->

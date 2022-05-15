@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html  lang="en"  xmlns:th="http://thymeleaf.org">
+<head th:replace="fragments/header :: html_head(page_title='Our Agents')"></head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<!--/ Intro Single star /-->
+<section class="intro-single">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-8">
+                <div class="title-single-box">
+                    <h1 class="title-single">Update Apartment</h1>
+                    <span class="color-text-a">update apartment</span>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-4">
+                <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="#">My Page</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Update Apartment
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ Intro Single End /-->
+
+<!--/ Form Add Star /-->
+<section class="form_add_apartment">
+    <div class="container">
+        <form class="form-a" action="#" th:action="@{/UpdateApartment}" th:object="${apartment}" method="POST">
+            <div class="row">
+                <div class="col-md-6 mb-2">
+                    <div class="form-group">
+                        <label >Adresse</label>
+                        <input type="text" class="form-control form-control-lg form-control-a" placeholder="Adresse of the apartment" th:field="*{adresse}" name="adresse" required/>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <!--<div class="form-group">
+                        <label for="Type">Type</label>
+                        <select class="form-control form-control-lg form-control-a" id="Type" th:field="*{type}" name="type">
+                            <option th:value="'Studio'" th:text="Studio"></option>
+                            <option th:value="'Duplex'" th:text="Duplex"></option>
+                            <option th:value="'Triplex'" th:text="Triplex"></option>
+                            <option th:value="'House'" th:text="House"></option>
+                        </select>
+                    </div>-->
+                    <div class="form-group">
+                        <label >Type</label>
+                        <input type="text" class="form-control form-control-lg form-control-a" placeholder="Studio" th:field="*{type}" name="type" required/>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <!--<div class="form-group">
+                        <label for="city">City</label>
+                        <select class="form-control form-control-lg form-control-a" id="city" th:field="*{city}" name="city">
+                            <option th:value="'Tangier'" th:text="Tangier"></option>
+                            <option th:value="'Agadir'" th:text="Agadir"></option>
+                            <option th:value="'Casablanca'" th:text="Casablanca"></option>
+                            <option th:value="'Rabat'" th:text="Rabat"></option>
+                        </select>
+                    </div>-->
+                    <div class="form-group">
+                        <label >City</label>
+                        <input type="text" class="form-control form-control-lg form-control-a" placeholder="Tangier" th:field="*{city}" name="city" required/>
+                    </div>
+                </div>
+                <!--<div class="col-md-6 mb-2">
+                    <div class="form-group">
+                        <label for="ambience">Neighborhood</label>
+                        <select class="form-control form-control-lg form-control-a" id="ambience" th:field="*{neighborhood}" name="neighborhood">
+                            <option th:value="'Boukhalef'" th:text="Boukhalef"></option>
+                            <option th:value="'Mesnana'" th:text="Mesnana"></option>
+                            <option th:value="'Iberia'" th:text="Iberia"></option>
+                            <option th:value="'Casabarata'" th:text="Casabarata"></option>
+                        </select>
+                    </div>
+                </div>-->
+                <div class="col-md-6 mb-2">
+                    <div class="form-group">
+                        <label >Neighborhood</label>
+                        <input type="text" class="form-control form-control-lg form-control-a" placeholder="Neighborhood" th:field="*{neighborhood}" name="neighborhood" required/>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="form-group">
+                        <label >Ambience</label>
+                        <input type="text" class="form-control form-control-lg form-control-a" placeholder="Ambience of the neighborhood" th:field="*{ambience}" name="ambience" required/>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="form-group">
+                        <label for="bedrooms">Bedrooms</label>
+                        <select class="form-control form-control-lg form-control-a" id="bedrooms" th:field="*{bedrooms}" name="bedrooms">
+                            <option th:each="i : ${#numbers.sequence(0, 100)}" th:value="${i}" th:text="${i}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <div class="form-group">
+                        <label for="bathrooms">Bathrooms</label>
+                        <select class="form-control form-control-lg form-control-a" id="bathrooms" th:field="*{bathrooms}" name="bathrooms">
+                            <option th:each="i : ${#numbers.sequence(0, 100)}" th:value="${i}" th:text="${i}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="form-group">
+                        <label for="img">Image</label>
+                        <select class="form-control form-control-lg form-control-a" id="img" th:field="*{img}" name="img">
+                            <option th:each="i : ${#numbers.sequence(1, 10)}" th:value="${i}" th:text="${i}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="form-group">
+                        <label for="statut">Statut</label>
+                        <select class="form-control form-control-lg form-control-a" id="statut" th:field="*{statut}" name="statut">
+                            <option th:value="'Empty'" th:text="Empty"></option>
+                            <option th:value="'Filled'" th:text="Filled"></option>
+                        </select>
+                    </div>
+                </div>
+               <!-- <div class="col-md-6 mb-2">
+                    <div class="form-group">
+                        <label for="price">Max Price</label>
+                        <select class="form-control form-control-lg form-control-a" id="price" th:field="*{price}"  name="price">
+                            <option th:value="'Unlimite'" th:text="Unlimite"></option>
+                            <option th:value="'1000DHS'" th:text="1000"> DHS</option>
+                            <option th:value="'2000DHS'" th:text="2000"> DHS</option>
+                            <option th:value="'3000DHS'" th:text="3000"> DHS</option>
+                            <option th:value="'4000DHS'" th:text="4000"> DHS</option>
+                        </select>
+                    </div>
+                </div>-->
+
+                <div class="col-md-6 mb-2">
+                    <div class="form-group">
+                        <label for="area">Area</label>
+                        <input type="text" class="form-control form-control-lg form-control-a" placeholder="Area" id="area" th:field="*{area}"  name="area" required/>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="text" class="form-control form-control-lg form-control-a" placeholder="Price" id="price" th:field="*{price}"  name="price" required/>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <input type="hidden"  name ="id" th:value="${apartment.id}" th:field="*{id}"/>
+                    <button type="submit" class="btn btn-b">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<!--/ Form Add End /-->
+
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

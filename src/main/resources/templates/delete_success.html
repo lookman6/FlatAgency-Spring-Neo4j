@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html  lang="en"  xmlns:th="http://thymeleaf.org">
+<head th:replace="fragments/header :: html_head(page_title='New Apartment')"></head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<!--/ Intro Single star /-->
+<section class="intro-single">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-8">
+                <div class="title-single-box">
+                    <h1 class="title-single">Delete Apartment</h1>
+                    <span class="color-text-a">delete apartment</span>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-4">
+                <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="#">My Page</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Delete Apartment
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ Intro Single End /-->
+
+<!--/ Form Add Star /-->
+<section class="form_add_apartment">
+    <div class="container">
+        <h3>Apartment delete successfully !!!!</h3><br/><br/><br/>
+        <div class="row property-grid grid">
+            <div class="col-md-6 mb-2">
+                <div class="form-group">
+                    <a th:href="@{/GetInfos}"><button class="btn btn-b" type="button">Return to my page</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ Form Add End /-->
+
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

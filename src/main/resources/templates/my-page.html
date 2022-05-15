@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html  lang="en"  xmlns:th="http://thymeleaf.org">
+<head th:replace="fragments/header :: html_head(page_title='My Page')"></head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<!--/ Intro Single star /-->
+<section class="intro-single">
+    <div class="container">
+        <div class="row" th:each="person : ${persons}">
+            <div class="col-md-12 col-lg-8">
+                <div class="title-single-box">
+                    <h1 class="title-single" th:text="${person.firstname}"></h1>
+                    <span class="color-text-a" th:text="${person.profession}"></span>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-4">
+                <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a th:href="@{/index}">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            <a href="#">My Page</a>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ Intro Single End /-->
+
+<!--/ Agent Single Star /-->
+<section class="agent-single">
+    <div class="container">
+        <div class="row" th:each="person : ${persons}">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="agent-avatar-box">
+                            <img th:src="${'/img/agents/'+person.img+'.jpg'}"  name=img th:value="${person.img}" alt=""  class="agent-avatar img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-md-5 section-md-t3">
+                        <div class="agent-info-box">
+                            <div class="agent-title">
+                                <div class="title-box-d">
+                                    <h3 class="title-d"><span th:text="${person.firstname}"></span>
+                                        <br> <span th:text="${person.name}"></span></h3>
+                                </div>
+                            </div>
+                            <div class="agent-content mb-3"><!--
+                                <p class="content-d color-text-a">
+                                    Sed porttitor lectus nibh. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.
+                                    Vivamus suscipit tortor
+                                    eget felis porttitor volutpat. Vivamus suscipit tortor eget felis porttitor volutpat.
+                                </p>-->
+                                <div class="info-agents color-a">
+                                    <p>
+                                        <strong>Phone: </strong>
+                                        <span class="color-text-a" th:text="${person.telephone}"></span>
+                                    </p>
+                                    <!--<p>
+                                        <strong>Mobile: </strong>
+                                        <span class="color-text-a"> 999 123 456 789</span>
+                                    </p>-->
+                                    <p>
+                                        <strong>Email: </strong>
+                                        <span class="color-text-a" th:text="${person.email}"></span>
+                                    </p>
+                                    <!--<p>
+                                        <strong>skype: </strong>
+                                        <span class="color-text-a"> Margaret.Es</span>
+                                    </p>
+                                    <p>
+                                        <strong>Email: </strong>
+                                        <span class="color-text-a"> agents@example.com</span>
+                                    </p>-->
+                                </div>
+                            </div>
+                            <div class="socials-footer">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <a href="#" class="link-one">
+                                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="link-one">
+                                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="link-one">
+                                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="link-one">
+                                            <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="link-one">
+                                            <i class="fa fa-dribbble" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 section-t8">
+                <div class="title-box-d">
+                    <!--<h3 class="title-d">My Properties (<span th:text="{person.nbApartment}"></span>)</h3>-->
+                    <h3 class="title-d">My Properties</h3>
+                </div>
+            </div>
+            <div class="col-md-6 mb-2">
+                <div class="form-group">
+                    <a th:href="@{/AddApartment}"><button class="btn btn-b" type="button">Add Apartment</button></a>
+                </div>
+            </div>
+            <div class="row property-grid grid">
+                <div class="col-md-4 mb-3" th:each="apartment : ${apartments}">
+                    <!--<form action="propertySingle" >-->
+                        <div class="card-box-a card-shadow">
+                            <div class="img-box-a">
+                                <img th:src="${'/img/property/'+apartment.img+'.jpg'}"  name=img th:value="${apartment.img}" alt="" class="img-a img-fluid">
+                            </div>
+                            <div class="card-overlay">
+                                <div class="card-overlay-a-content">
+
+                                    <div class="card-header-a">
+
+                                        <form action="Rating_appart" >
+                                            <select  name="rating">
+                                                <option th:text="${apartment.ratingnbr}" th:value="${apartment.ratingnbr}"></option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+                                            <input type="hidden"  name ="id" th:value="${apartment.id}"/>
+                                            <input type="hidden"  name ="rating" th:value="${apartment.ratingnbr}"/>
+                                            <button type="submit" class="button_star"><img th:src="@{/img/star.png}" class="img_star"/></button>
+                                        </form>
+                                        <input type="hidden"  name ="rating" th:value="${apartment.ratingnbr}"/>
+                                        <!--<div class="container d-flex justify-content-center mt-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="stars">
+                                                        <form action="Rating_appart">
+                                                                <input class="star star-5" id="star-5" type="radio" name="rating" value="5" onClick=\"javascript:saveRating()/>
+                                                                <label class="star star-5" for="star-5"></label>
+                                                                <input class="star star-4" id="star-4" type="radio" name="rating" value="4" onClick=\"javascript:saveRating()/>
+                                                                <label class="star star-4" for="star-4"></label>
+                                                                <input class="star star-3" id="star-3" type="radio" name="rating" value="3" onClick=\"javascript:saveRating()/>
+                                                                <label class="star star-3" for="star-3"></label>
+                                                                <input class="star star-2" id="star-2" type="radio" name="rating" value="2" onClick=\"javascript:saveRating()/>
+                                                                <label class="star star-2" for="star-2"></label>
+                                                                <input class="star star-1" id="star-1" type="radio" name="rating" value="1" onClick=\"javascript:saveRating()/>
+                                                                <label class="star star-1" for="star-1"></label>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>-->
+                                        <h2 class="card-title-a">
+                                            <br  /><input type="hidden"  name ="type" th:value="${apartment.type}" th:text="${apartment.type}"/>
+
+                                        </h2>
+                                    </div>
+                                    <div class="card-body-a">
+                                        <div class="price-box d-flex">
+                                            <span class="price-a" >
+                                              <input type="hidden"  name ="price" th:value="${apartment.price}" th:text="'rent | '+${apartment.price}"/>
+                                            </span>
+                                        </div>
+                                        <form action="propertySingle" >
+                                            <input type="hidden"  name ="id" th:value="${apartment.id}"/>
+                                            <input type="submit" value="Click here to view" class="link-a click_here" />
+                                        </form>
+                                        <br/>
+                                        <div style="display: flex">
+                                            <form action="UpdateApartment" >
+                                                <input type="hidden"  name ="id" th:value="${apartment.id}"/>
+                                                <input type="submit" value="Update" class="link-a update_btn" />
+                                            </form>
+                                            <form action="DeleteApartment" >
+                                                <input type="hidden"  name ="id" th:value="${apartment.id}"/>
+                                                <input type="submit" value="Delete" class="link-a delete_btn" />
+                                            </form>
+                                        </div>
+                                        <span class="ion-ios-arrow-forward"></span>
+                                    </div>
+                                    <div class="card-footer-a">
+                                        <ul class="card-info d-flex justify-content-around">
+                                            <li>
+                                                <h4 class="card-info-title">Area</h4>
+                                                <span >
+                                                <input type="hidden"  name ="area" th:value="${apartment.area}" th:text="${apartment.area}"/>
+                                                <sup>2</sup>
+                                              </span>
+                                            </li>
+                                            <li>
+                                                <h4 class="card-info-title">Beds</h4>
+                                                <span >
+                                                <input type="hidden"  name ="bedrooms" th:value="${apartment.bedrooms}" th:text="${apartment.bedrooms}"/>
+
+                                              </span>
+                                            </li>
+                                            <li>
+                                                <h4 class="card-info-title">Hood</h4>
+                                                <span >
+                                                    <input type="hidden"  name ="neighborhood" th:value="${apartment.neighborhood}" th:text="${apartment.neighborhood}"/>
+
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <h4 class="card-info-title">city</h4>
+                                                <span >
+                                                    <input type="hidden"  name ="city" th:value="${apartment.city}" th:text="${apartment.city}"/>
+
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                   <!-- </form>-->
+                </div>
+            </div>
+            <!--<div class="row property-grid grid">
+                <div  th:each="apartment : ${apartments}">
+                    <form action="propertySingle" >
+                        <div class="select">
+                            <select class="form-control" id="locale">
+                                <option value="af-ZA">af-ZA</option>
+                                <option value="ar-SA">ar-SA</option>
+                                <option value="ca-ES">ca-ES</option>
+                                <option value="cs-CZ">cs-CZ</option>
+                                <option value="da-DK">da-DK</option>
+                                <option value="de-DE">de-DE</option>
+                                <option value="el-GR">el-GR</option>
+                                <option value="en-US" selected>en-US</option>
+                                <option value="es-AR">es-AR</option>
+                                <option value="es-CL">es-CL</option>
+                                <option value="es-CR">es-CR</option>
+                                <option value="es-ES">es-ES</option>
+                                <option value="es-MX">es-MX</option>
+                                <option value="es-NI">es-NI</option>
+                                <option value="es-SP">es-SP</option>
+                                <option value="et-EE">et-EE</option>
+                                <option value="eu-EU">eu-EU</option>
+                                <option value="fa-IR">fa-IR</option>
+                                <option value="fi-FI">fi-FI</option>
+                                <option value="fr-BE">fr-BE</option>
+                                <option value="fr-FR">fr-FR</option>
+                                <option value="he-IL">he-IL</option>
+                                <option value="hr-HR">hr-HR</option>
+                                <option value="hu-HU">hu-HU</option>
+                                <option value="id-ID">id-ID</option>
+                                <option value="it-IT">it-IT</option>
+                                <option value="ja-JP">ja-JP</option>
+                                <option value="ka-GE">ka-GE</option>
+                                <option value="ko-KR">ko-KR</option>
+                                <option value="ms-MY">ms-MY</option>
+                                <option value="nb-NO">nb-NO</option>
+                                <option value="nl-NL">nl-NL</option>
+                                <option value="pl-PL">pl-PL</option>
+                                <option value="pt-BR">pt-BR</option>
+                                <option value="pt-PT">pt-PT</option>
+                                <option value="ro-RO">ro-RO</option>
+                                <option value="ru-RU">ru-RU</option>
+                                <option value="sk-SK">sk-SK</option>
+                                <option value="sv-SE">sv-SE</option>
+                                <option value="th-TH">th-TH</option>
+                                <option value="tr-TR">tr-TR</option>
+                                <option value="uk-UA">uk-UA</option>
+                                <option value="ur-PK">ur-PK</option>
+                                <option value="uz-Latn-UZ">uz-Latn-UZ</option>
+                                <option value="vi-VN">vi-VN</option>
+                                <option value="zh-CN">zh-CN</option>
+                                <option value="zh-TW">zh-TW</option>
+                            </select>
+                        </div>
+
+                        <div id="toolbar">
+                            <button id="remove" class="btn btn-danger" disabled>
+                                <i class="fa fa-trash"></i> Delete
+                            </button>
+                        </div>
+                        <table
+                                id="table"
+                                data-toolbar="#toolbar"
+                                data-search="true"
+                                data-show-refresh="true"
+                                data-show-toggle="true"
+                                data-show-fullscreen="true"
+                                data-show-columns="true"
+                                data-show-columns-toggle-all="true"
+                                data-detail-view="true"
+                                data-show-export="true"
+                                data-click-to-select="true"
+                                data-detail-formatter="detailFormatter"
+                                data-minimum-count-columns="2"
+                                data-show-pagination-switch="true"
+                                data-pagination="true"
+                                data-id-field="id"
+                                data-page-list="[10, 25, 50, 100, all]"
+                                data-show-footer="true"
+                                data-side-pagination="server"
+                                data-url="https://examples.wenzhixin.net.cn/examples/bootstrap_table/data"
+                                data-response-handler="responseHandler">
+                        </table>
+                    </form>
+                </div>
+            </div>-->
+        </div>
+    </div>
+</section>
+<!--/ Agent Single End /-->
+
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>
